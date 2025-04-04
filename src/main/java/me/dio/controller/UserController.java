@@ -33,4 +33,10 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(location).body(userCreated);
     }
+
+    @GetMapping("/balance/{userId}")
+    public ResponseEntity<?> getBalance(@PathVariable Long userId) {
+        Double balance = userService.getUserBalance(userId);
+        return ResponseEntity.ok(Collections.singletonMap("balance", balance));
+    }
 }
