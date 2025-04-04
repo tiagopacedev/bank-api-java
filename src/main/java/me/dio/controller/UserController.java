@@ -39,4 +39,10 @@ public class UserController {
         Double balance = userService.getUserBalance(userId);
         return ResponseEntity.ok(Collections.singletonMap("balance", balance));
     }
+
+    @GetMapping("/{userId}/news")
+    public ResponseEntity<List<News>> getUserNews(@PathVariable Long userId) {
+        List<News> news = userService.getUserNews(userId);
+        return ResponseEntity.ok(news);
+    }
 }

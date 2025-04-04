@@ -9,4 +9,6 @@ public interface UserService {
     User create(User userToCreate);
 
     Double getUserBalance(Long userId);
+
+    List<News> getUserNews(Long userId);
 }

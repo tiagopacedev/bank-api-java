@@ -35,4 +35,11 @@ public class UserServiceImpl implements UserService {
             .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         return user.getAccount().getBalance();
     }
+
+    @Override
+    public List<News> getUserNews(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
+        return user.getNews();
+    }
 }
